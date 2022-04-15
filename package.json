@@ -1,0 +1,57 @@
+{
+  "name": "simple-notes-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=development PORT=4001 jest --verbose --silent --force-exit --maxWorkers=1",
+    "test:watch": "npm run test -- --watchall",
+    "test:coverage": "npx jest --coverage --maxWorkers=1",
+    "build:local": "rimraf ./build && tsc",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "cross-env NODE_ENV=development ts-node-dev ./src/index.ts",
+    "start": "cross-env NODE_ENV=production npm run build && node ./build/index.js",
+    "start:local": "cross-env NODE_ENV=production npm run build:local && node ./build/index.js"
+  },
+  "keywords": [
+    "mysql",
+    "typeorm",
+    "typescript",
+    "jest",
+    "node"
+  ],
+  "author": "Nicolas Heredia",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "fastest-validator": "^1.12.0",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.1",
+    "@types/mysql": "^2.15.21",
+    "@types/node": "^17.0.24",
+    "@types/supertest": "^2.0.12",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    }
+  }
+}
